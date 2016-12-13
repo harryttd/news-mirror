@@ -12,7 +12,9 @@
   "permissions": [
     "activeTab",
     "tabs",
-    "https://ajax.googleapis.com/"
+    "https://google.com/",
+    "https://ajax.googleapis.com/",
+    "https://cse.google.com/*"
   ],
   "content_scripts": [
     {
@@ -20,8 +22,10 @@
         "http://*/*",
         "https://*/*"
       ],
-      "js": ["script.js"],
+      "js": ["script.js", "search.js"],
       "run_at": "document_end"
     }
-  ]
+  ],
+  "content_security_policy":"script-src 'self' 'unsafe-eval' https://*.google.com/ https://www.googleapis.com; object-src 'self'"
+
 }
