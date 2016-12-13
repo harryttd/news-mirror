@@ -16,13 +16,17 @@
     "https://ajax.googleapis.com/",
     "https://cse.google.com/*"
   ],
+  "background": {
+   "scripts": ["script.js"],
+   "persistent": false
+ },
   "content_scripts": [
     {
       "matches": [
         "http://*/*",
         "https://*/*"
       ],
-      "js": ["script.js", "search.js"],
+      "js": ["script.js"],
       "run_at": "document_end"
     }
   ],

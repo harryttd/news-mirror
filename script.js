@@ -1,5 +1,4 @@
-
-
+var headline;
 function getHeadline () {
   let headlineArray = document.getElementsByTagName('h1');
   let headline = '';
@@ -17,6 +16,7 @@ function getHeadline () {
       }
     });
   }
+  // console.log("headline",headline);
   return headline;
 }
 
@@ -30,6 +30,11 @@ function despecifyHeadline(headline) {
   let array = headline.split(' ');
   return array.slice(0, (array.length / 2) - 1).join(' ');
 }
+
+// console.log(getHeadline());
+// console.log(getUrl())
+headline = despecifyHeadline(getHeadline());
+headline;
 
 // const siteObject = {};
 // const lib = 'liberal';

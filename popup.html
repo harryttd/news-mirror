@@ -7,8 +7,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script type='text/javascript' src='search.js'></script>
-    <base href="https://google.com" src="https://google.com"/>
+    <script type='text/javascript' src='search.js' defer></script>
+    <script src="script.js" defer></script>
+    <!-- <base href="https://google.com" src="https://google.com"/> -->
 
     <title>News Project</title>
     <style>
@@ -26,15 +27,16 @@
         max-width: 400px;
       }
     </style>
-    <script src="script.js"></script>
   </head>
   <body>
-    <p>HELLO WORLD</p>
+    <!-- <h1 id='headline'>TEST</h1> -->
+    <!-- <p>HELLO WORLD</p> -->
     <div id="status"></div>
     <img id="image-result" hidden>
 
     <div>
       <gcse:search></gcse:search>
+      <button id='populateSearch'></button>
     </div>
   </body>
 </html>
