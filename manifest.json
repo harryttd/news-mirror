@@ -26,6 +26,6 @@
       "run_at": "document_end"
     }
   ],
-  "content_security_policy":"script-src 'self' 'unsafe-eval' https://*.google.com/ http://*.google.com/; object-src 'self'"
+  "content_security_policy":"script-src 'self' 'unsafe-eval' https://*.google.com/ https://www.googleapis.com; object-src 'self'"
 
 }
