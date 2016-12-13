@@ -17,7 +17,7 @@ function getHeadline () {
       }
     });
   }
-  return headline;
+  return headline; //return part of it to make the search less specific?
 }
 
 function getUrl () {
@@ -26,6 +26,26 @@ function getUrl () {
   return 'www.' + temp.slice(0, temp.indexOf('.')) + '.com';
 }
 
+function despecifyHeadline(headline) {
+  let array = headline.split(' ');
+  return array.slice(0, (array.length / 2) - 1).join(' ');
+}
+console.log(despecifyHeadline(getHeadline()));
 
 // console.log(getHeadline())
 // console.log(getUrl())
+
+
+const siteObject = {};
+const lib = 'liberal';
+const cons = 'conservative';
+const mod = 'moderate';
+siteObject['www.nytime.com'] = lib;
+siteObject['www.huffingtonpost.com'] = lib;
+siteObject['www.buzzfeed.com'] = lib;
+siteObject[] =
+siteObject[] =
+siteObject[] =
+siteObject[] =
+siteObject[] =
+console.log('obj: ', siteObject)
