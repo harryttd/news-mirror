@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "Getting started example",
-  "description": "This extension shows a Google Image search result for the current page",
+  "name": "News Mirror",
+  "description": "Get news from the opposite side",
   "version": "0.1",
 
   "browser_action": {
