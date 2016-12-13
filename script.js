@@ -1,5 +1,4 @@
-
-
+var headline;
 function getHeadline () {
   let headlineArray = document.getElementsByTagName('h1');
   let headline = '';
@@ -17,6 +16,7 @@ function getHeadline () {
       }
     });
   }
+  // console.log("headline",headline);
   return headline;
 }
 
@@ -26,6 +26,9 @@ function getUrl () {
   return 'www.' + temp.slice(0, temp.indexOf('.')) + '.com';
 }
 
-
-// console.log(getHeadline())
+var x = getHeadline();
+console.log("X IS...", x);
+// console.log(getHeadline());
 // console.log(getUrl())
+headline = getHeadline();
+headline;
