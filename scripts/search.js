@@ -1,45 +1,31 @@
-function addQuery(iframeId, headline) {
-  var inner = document.getElementById(iframeId).contentDocument;
-  inner.getElementById('gsc-i-id1').value = headline;
-}
+/* global keys chrome */
 
-
-function simulateClick(iframeId) {
-  var inner = document.getElementById(iframeId).contentDocument;
-  var btn = inner.getElementsByClassName('gsc-search-button');
-  btn[1].click();
-}
-
-function populateSearch(event) {
+function query(event) {
   chrome.tabs.executeScript({
     file: '/scripts/script.js'
   }, headline => {
 
-    // insert headling into query of google searches
-    addQuery('lib-iframe', headline);
-    addQuery('con-iframe', headline);
-    addQuery('mod-iframe', headline);
+    console.log('headline is', headline, typeof headline);
 
+    // convert headline from obj to string joined by '+'s
+    let toSearch = headline[0].replace(' ', '+');
 
-    // simulate clicking Google search
-    simulateClick('lib-iframe');
-    simulateClick('con-iframe');
-    simulateClick('mod-iframe');
+    let moderate = $.get(`https://www.googleapis.com/customsearch/v1?q=${toSearch}&cx=${keys.MODERATE_ID}&key=${keys.GOOGLE_CSE}`);
+    let liberal = $.get(`https://www.googleapis.com/customsearch/v1?q=${toSearch}&cx=${keys.LIBERAL_ID}&key=${keys.GOOGLE_CSE}`);
+    let conservative = $.get(`https://www.googleapis.com/customsearch/v1?q=${toSearch}&cx=${keys.CONSERVATIVE_ID}&key=${keys.GOOGLE_CSE}`);
+
+    Promise.all([moderate, liberal, conservative])
+    .then(resultsArr => console.log('WE GOT SHIT BACK', resultsArr))
+
+    
 
 
   });
 }
 
-(function addListeners() {
-    var btn = document.getElementById('populateSearch');
-    btn.addEventListener('click', populateSearch);
+(function addListener() {
+    var btn = document.getElementById('search');
+    btn.addEventListener('click', query);
 })();
 
 
-
-// Docs say we should fill our queries this way
-// but it doesn't work...womp womp...
-
-// var element = google.search.cse.element.getElement("2DSearch");
-//         element.prefillQuery(primarySearch);
-//         element.execute(primarySearch);

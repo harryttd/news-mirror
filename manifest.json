@@ -3,7 +3,7 @@
 
   "name": "News Mirror",
   "description": "Get news from the opposite side",
-  "version": "0.1",
+  "version": "0.2",
 
   "browser_action": {
     "default_icon": "mirror.png",
@@ -17,7 +17,7 @@
     "https://cse.google.com/*"
   ],
   "background": {
-   "scripts": ["scripts/script.js"],
+   "scripts": ["scripts/jquery-3.1.1.min.js", "scripts/script.js"],
    "persistent": false
  },
   "content_scripts": [
