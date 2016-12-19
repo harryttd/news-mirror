@@ -11,28 +11,10 @@
     <script src="/scripts/keys.js" defer></script>
     <script src="/scripts/search.js" defer></script>
     <script src="/scripts/script.js" defer></script>
-    <!-- <base href="https://google.com" src="https://google.com"/> -->
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
 
-    <title>News Project</title>
-    <style>
-      body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
-        height: 500px;
-        width: 500px;
-      }
-      #status {
-        /* avoid an excessively wide status text */
-        white-space: pre;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
-      }
-      iframe {
-        border: none;
-        width: 100%;
-      }
-    </style>
+    <title>News Mirror</title>
+
   </head>
   <body>
     <div id="status"></div>
@@ -43,6 +25,22 @@
     </div>
     <div>
       <button id='search'>Find Similar News</button>
+    </div>
+    <div id="all-results" class="hidden">
+      <div class="results-container">
+        <h3 id="moderate-title" class="section-title">Moderate</h3>
+        <div id="moderate-results"></div>
+      </div>
+
+      <div class="results-container">
+        <h3 id="liberal-title" class="section-title">Liberal</h3>
+        <div id="liberal-results"></div>
+      </div>
+
+      <div class="results-container">
+        <h3 id="conservative-title" class="section-title">Conservative</h3>
+        <div id="conservative-results"></div>
+      </div>
     </div>
 
   </body>

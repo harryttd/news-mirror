@@ -1,4 +1,3 @@
-var headline;
 function getHeadline () {
   let headlineArray = document.getElementsByTagName('h1');
   let headline = '';
@@ -16,7 +15,6 @@ function getHeadline () {
       }
     });
   }
-  // console.log("headline",headline);
   return headline;
 }
 
@@ -31,10 +29,18 @@ function despecifyHeadline(headline) {
   return array.slice(0, (array.length / 2) - 1).join(' ');
 }
 
-// console.log(getHeadline());
-// console.log(getUrl())
-headline = despecifyHeadline(getHeadline());
-headline;
+function sendValsUp() {
+
+  let toReturn = {};
+
+  toReturn.url = getUrl();
+  toReturn.headline = despecifyHeadline(getHeadline());
+
+  return toReturn;
+}
+
+sendValsUp();
+
 
 // const siteObject = {};
 // const lib = 'liberal';
