@@ -14,15 +14,18 @@ $(document).ready(function(){
 });
 
 
+
 function makeResult(story, section) {
 
-  $(`<div title=${story.title}>\
-      <h3 class="article-title">${story.title}</h3>\
-       <a href=${story.link}>\
-         <span>${story.snippet}</span>\
-         <h5>${story.displayLink}</h5>\
-       </a>\
-     </div>`)
+  $('<div/>', {title: story.title}).append(
+    $('<h3/>', {class: 'article-title', text: story.title }).append(
+      $('<a>', {href: story.link}).append(
+        $('<span/>', {text: story.snippet})
+        ).append(
+        $('<h5/>', {text: story.displayLink})
+      )
+    )
+  )
   .appendTo(section);
 }
 
@@ -58,6 +61,7 @@ function query(event) {
     let liberal = $.get(`https://www.googleapis.com/customsearch/v1?q=${toSearch}&cx=${keys.LIBERAL_ID}&key=${keys.GOOGLE_CSE}`);
     let conservative = $.get(`https://www.googleapis.com/customsearch/v1?q=${toSearch}&cx=${keys.CONSERVATIVE_ID}&key=${keys.GOOGLE_CSE}`);
 
+
     Promise.all([moderate, liberal, conservative])
     .then(resultsArr => {
       console.log('WE GOT SHIT BACK', resultsArr);
@@ -73,4 +77,18 @@ function query(event) {
   });
 }
 
+/* FOR TESTING
+
+
+let testStory = {
+  title: 'Best title ever',
+  snippet: 'Look at all this cool shnippet',
+  displayLink: 'www.breitbart.com',
+  link: 'http://www.breitbart.com/jerusalem/2016/12/18/ban-ki-moon-disproportionate-un-criticism-israel-harming-organizations-mission/'
+}
+
+makeResult(testStory, '#conservative-results', url)
+
+$('#all-results').removeClass('hidden');
+*/
 
